@@ -1,22 +1,30 @@
 #! /bin/bash
 
-cp .vimrc ~/.vimrc
-cp .zshrc ~/.zshrc
+if [ $EUID != 0 ]
+then
+    sudo "$0" "$@"
+    exit $?
+fi
 
-OS=$(uname -o)
-if [ $OS = "GNU/Linux" ]
+OS=$(tr [A-Z] [a-z] <<< $(uname -rv))
+SHELL=${1:-zsh}
+
+cp .vimrc ~/.vimrc
+
+if [[ $OS == *"ubuntu"* ]]
 then
     TMP="sudo apt-get install -y"
+elif [[ $OS == *"manjaro"* ]]
+then
+    TMP="yes | sudo pacman -S"
 else
     echo "No setup for this OS: '$OS'"
     exit 1
 fi
 
-SHELL=${1:-zsh}
 
-ProgramArray=("git" "vim" "curl" $SHELL 'python3' 'python3-pip' 'guake' 'tmux')
+ProgramArray=("git" "vim" "curl" "wget" $SHELL 'python3' 'python3-pip' 'guake' 'tmux')
 for program in ${ProgramArray[*]}; do
-    echo $program
     sh -c "$TMP $program"
 done
 
@@ -25,13 +33,15 @@ python3 -m pip install thefuck
 
 if [ $SHELL = "zsh" ]
 then
-    sudo apt install -y zsh
+    cp .zshrc ~/.zshrc
     wget -nv https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     sh install.sh --ship-chsh
     sudo chsh -s $(which zsh)
     rm ./install.sh
+elif [ $SHELL = "fish" ]
+then
+    sh -c 'curl -L https://get.oh-my.fish | fish'
+    sudo chsh -s $(which fish)
 fi
 
-
 sudo apt autoremove -y
-
