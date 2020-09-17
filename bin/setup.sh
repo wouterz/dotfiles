@@ -5,8 +5,16 @@ OS=$(tr [A-Z] [a-z] <<< $(uname -rv))
 SHELL=${1:-zsh}
 
 
-# vim
-cp .vimrc ~/.vimrc
+# Require and exit if not exists
+function pkg_require(){
+   command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting." ; exit 1; } 
+}
+
+# Check if exists
+function pkg_exists() {
+       command -v $1 >/dev/null 2>&1 || echo >&2 "Pkg $1 is not installed." 
+}
+
 
 
 
@@ -39,11 +47,9 @@ python3 -m pip install --upgrade pip
 python3 -m pip install thefuck
 
 
-echo '# Start libs' >> ~/.bashrc
-echo 'eval $(fasd --init auto)' >> ~/.bashrc
-echo 'eval $(thefuck --alias)' >> ~/.bashrc
+
 
 # Clean up
 sudo apt autoremove -y
 
-echo "Run 'source ~/.bashrc' or start a new terminal to finish the setup"
+source ~/.bash_profile;
