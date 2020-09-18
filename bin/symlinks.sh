@@ -1,3 +1,7 @@
+#! /bin/bash
+
+
+. "utils.sh"
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
@@ -5,7 +9,7 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 function link_home() {
-    ln -sf --backup=numbered $(dirname $SCRIPTPATH)/$1 ~/$1;
+    ln -sf $(dirname $SCRIPTPATH)/$1 ~/$1;
 }
 
 # link dotfiles
@@ -16,8 +20,11 @@ link_home .bash_profile
 
 link_home .zshrc
 
+link_home .aliases
+
 link_home .gitconfig
-link_home .gitattributes
-link_home .gitingnore
+link_home .gitattributes_global
+link_home .gitignore_global
 
 link_home .tmux.conf
+

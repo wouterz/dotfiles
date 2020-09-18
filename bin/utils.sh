@@ -79,7 +79,6 @@ get_os() {
     local os=""
     local kernelName=""
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     kernelName="$(uname -s)"
 
@@ -100,8 +99,6 @@ get_os_version() {
     local os=""
     local version=""
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     os="$(get_os)"
 
     if [ "$os" == "macos" ]; then
@@ -113,6 +110,9 @@ get_os_version() {
     printf "%s" "$version"
 
 }
+
+
+## fancy prints
 
 print_in_color() {
     printf "%b" \

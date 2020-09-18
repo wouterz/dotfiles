@@ -18,9 +18,9 @@
     df = diff
     g = grep -I
     lg = log -p
-    pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
     rb = rbranch
     rv = review
+    sm  = show-merges
     st = status
     ksdiff = difftool -y -t Kaleidoscope
 

@@ -14,11 +14,7 @@ MYSHELL=${1:-zsh}
 
 # Force sudo
 ask_for_sudo
-# if [ $EUID != 0 ]
-# then
-#     sudo "$0" "$@"
-#     exit $?
-# fi
+
 
 # Install command
 if [[ $OS == *"ubuntu"* ]]
@@ -40,9 +36,6 @@ done
 
 python3 -m pip install --upgrade pip
 
-
-
-# ./oh-my.sh $MYSHELL
 
 # Clean up
 sudo apt autoremove -y

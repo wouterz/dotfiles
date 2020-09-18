@@ -3,17 +3,14 @@
 # Load util functions
 . "utils.sh"
 
-# Oh-My-Shell
+echo "install oh-my-$1"
 
 # remove sudo
 sudo -k
 
-echo "install oh-my-$1"
-
 # install oh-my-shell
 if [ $1 = "zsh" ]
 then
-   home_link .zshrc
    if pkg_exists curl; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
    elif pkg_exists wget; then
