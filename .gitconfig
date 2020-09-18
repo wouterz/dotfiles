@@ -4,8 +4,8 @@
 
 [core]
 	# Use custom `.gitignore` and `.gitattributes`.
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 
 [apply]
