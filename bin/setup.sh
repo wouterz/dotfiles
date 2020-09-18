@@ -1,29 +1,24 @@
 #! /bin/bash
 
+# Get source path from BASH_SOURCE if available, otherwise $0
+# echo ${BASH_SOURCE[0]:-$0}
+# cd to file path to ensure relative actions success
+cd "$(dirname "${BASH_SOURCE[0]:-$0}")"
+# Load util functions
+. "utils.sh"
+
 # Parameters
-OS=$(tr [A-Z] [a-z] <<< $(uname -rv))
-SHELL=${1:-zsh}
-
-
-# Require and exit if not exists
-function pkg_require(){
-   command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting." ; exit 1; } 
-}
-
-# Check if exists
-function pkg_exists() {
-       command -v $1 >/dev/null 2>&1 || echo >&2 "Pkg $1 is not installed." 
-}
-
-
+OS=$(get_os)
+MYSHELL=${1:-zsh}
 
 
 # Force sudo
-if [ $EUID != 0 ]
-then
-    sudo "$0" "$@"
-    exit $?
-fi
+ask_for_sudo
+# if [ $EUID != 0 ]
+# then
+#     sudo "$0" "$@"
+#     exit $?
+# fi
 
 # Install command
 if [[ $OS == *"ubuntu"* ]]
@@ -38,18 +33,20 @@ else
 fi
 
 # Packages to install
-ProgramArray=("git" "vim" "curl" "wget" $SHELL 'python3' 'python3-pip' 'guake' 'tmux' 'docker-compose' 'fasd')
+ProgramArray=("git" "vim" "curl" "wget" $MYSHELL 'python3' 'python3-pip' 'guake' 'tmux' 'docker-compose' 'fasd' 'thefuck')
 for program in ${ProgramArray[*]}; do
     sh -c "$TMP $program"
 done
 
 python3 -m pip install --upgrade pip
-python3 -m pip install thefuck
 
 
 
+# ./oh-my.sh $MYSHELL
 
 # Clean up
 sudo apt autoremove -y
 
-source ~/.bash_profile;
+# source updated files
+source ~/.bash_profile
+source ~/.zshrc

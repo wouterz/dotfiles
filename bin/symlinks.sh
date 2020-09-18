@@ -10,6 +10,14 @@ function link_home() {
 
 # link dotfiles
 link_home .vimrc
+
 link_home .bashrc
+link_home .bash_profile
+
 link_home .zshrc
+
 link_home .gitconfig
+link_home .gitattributes
+link_home .gitingnore
+
+link_home .tmux.conf

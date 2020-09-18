@@ -11,14 +11,33 @@
 # }
 
 
+# cd "$(dirname "${BASH_SOURCE[0]}")"
 
-pkg_require wget
 
-pkg_exists fetch
+# Get source path from BASH_SOURCE if available, otherwise $0
+echo ${BASH_SOURCE[0]:-$0}
 
-pkg_require fetch
+# cd to file path to ensure relative actions success
+cd "$(dirname "${BASH_SOURCE[0]:-$0}")"
 
-pkg_require fetch
+
+. "utils.sh"
+
+
+print_success "before"
+
+
+# . "oh-my.sh" "zsh"
+link_home .zshrc
+
+print_warning 'after'
+
+# pkg_require wget
+
+# pkg_exists fetch
+
+# pkg_require fetch
+# pkg_require fetch
 
 
 # link dotfiles

@@ -1,3 +1,29 @@
+#! /bin/bash
+
+SCRIPTPATH="$(dirname "${BASH_SOURCE[0]:-$0}")"
+
+# Require and exit if not exists
+pkg_require(){
+   command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting." ; exit 1; } 
+}
+
+# Check if exists
+# pkg_exists() {
+#     command -v $1 >/dev/null 2>&1 || echo >&2 "Pkg $1 is not installed." 
+# }
+pkg_exists() {
+    command -v "$1" &> /dev/null
+}
+
+link_home() {
+    echo ${BASH_SOURCE[0]:-$0}
+    echo $(dirname "${BASH_SOURCE[0]:-$0}")
+    echo $SCRIPTPATH
+    echo $(dirname $SCRIPTPATH)
+    # ln -sf --backup=numbered $(dirname $SCRIPTPATH)/$1 ~/$1;
+}
+
+
 ask_for_sudo() {
 
     # Ask for the administrator password upfront.
@@ -67,7 +93,6 @@ get_os() {
     fi
 
     printf "%s" "$os"
-
 }
 
 get_os_version() {
@@ -89,7 +114,12 @@ get_os_version() {
 
 }
 
-
+print_in_color() {
+    printf "%b" \
+        "$(tput sgr0 2> /dev/null)" \
+        "$1" \
+        "$(tput sgr0 2> /dev/null)"
+}
 
 print_in_green() {
     print_in_color "$1" 2
