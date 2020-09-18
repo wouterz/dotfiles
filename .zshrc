@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 # TODO Expansion with non-curly brackets?
-export ZSH="/home/$(id -un)/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -59,7 +59,7 @@ ZSH_THEME="agnoster"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -69,7 +69,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,4 +102,16 @@ source $ZSH/oh-my-zsh.sh
 eval "$(thefuck --alias)"
 eval "$(fasd --init auto)"
 
+# Remove user@hostname from prompt if default
+DEFAULT_USER=$USER
+
 PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
+
+prompt_dir() {
+    # Default: show dirs from home
+    #prompt_segment blue $current_FG '%~'
+    # Limit prompt to 3 directories
+    #prompt_segment blue $current_FG '%3~'
+    # Truncate prompt to 25 chars
+    prompt_segment blue $current_FG '%<...<%~%<< '
+}
