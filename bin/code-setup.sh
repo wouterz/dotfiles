@@ -1,0 +1,1 @@
+code --install-extension eamodio.gitlens GrapeCity.gc-excelviewer ms-python.python
