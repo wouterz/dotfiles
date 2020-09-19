@@ -25,7 +25,6 @@ link_home() {
 
 
 ask_for_sudo() {
-
     # Ask for the administrator password upfront.
 
     sudo -v &> /dev/null

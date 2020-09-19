@@ -28,7 +28,23 @@ print_success "before"
 
 
 # . "oh-my.sh" "zsh"
-link_home .zshrc
+# link_home .zshrc
+
+# ask "Do this now?"
+
+ask_for_confirmation "link dotfiles??" 
+if answer_is_yes; then
+    echo ""
+    print_in_green "Linking dotfiles\n"
+    # link dotfiles
+    # link_home .vimrc
+    # link_home .bashrc
+    # link_home .zshrc
+    # link_home .gitconfig
+
+    # . "symlinks.sh"
+
+fi
 
 print_warning 'after'
 
@@ -40,11 +56,6 @@ print_warning 'after'
 # pkg_require fetch
 
 
-# link dotfiles
-# link_home .vimrc
-# link_home .bashrc
-# link_home .zshrc
-# link_home .gitconfig
 
 # echo '# Start libs' >> ~/.bashrc
 # echo 'eval $(fasd --init auto)' >> ~/.bashrc

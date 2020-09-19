@@ -8,6 +8,8 @@ echo "install oh-my-$1"
 # remove sudo
 sudo -k
 
+sudo apt install $1 
+
 # install oh-my-shell
 if [ $1 = "zsh" ]
 then
@@ -21,4 +23,4 @@ then
 #       sh -c "curl -L https://get.oh-my.fish | fish"
 fi
 
-chsh -s $(which $1);
+chsh -s $(which $1)

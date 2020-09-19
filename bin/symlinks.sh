@@ -1,7 +1,7 @@
 #! /bin/bash
 
 
-. "utils.sh"
+# . "utils.sh"
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")

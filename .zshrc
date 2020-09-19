@@ -107,4 +107,5 @@ prompt_dir() {
     prompt_segment blue $current_FG '%<...<%~%<< '
 }
 
-[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+

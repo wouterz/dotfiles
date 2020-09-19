@@ -9,15 +9,13 @@ cd "$(dirname "${BASH_SOURCE[0]:-$0}")"
 
 # Parameters
 OS=$(get_os)
-MYSHELL=${1:-zsh}
-
 
 # Force sudo
 ask_for_sudo
 
 
 # Install command
-if [[ $OS == *"ubuntu"* ]]
+if [[ $OS = *"ubuntu"* ]]
 then
     TMP="sudo apt-get install -y"
 elif [[ $OS == *"manjaro"* ]]
@@ -29,7 +27,7 @@ else
 fi
 
 # Packages to install
-ProgramArray=("git" "vim" "curl" "wget" $MYSHELL 'python3' 'python3-pip' 'guake' 'tmux' 'docker-compose' 'fasd' 'thefuck')
+ProgramArray=("git" "vim" "curl" "wget" 'python3' 'python3-pip' 'guake' 'tmux' 'docker-compose' 'fasd' 'thefuck')
 for program in ${ProgramArray[*]}; do
     sh -c "$TMP $program"
 done
