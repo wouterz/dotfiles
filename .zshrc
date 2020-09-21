@@ -94,17 +94,18 @@ eval "$(thefuck --alias)"
 eval "$(fasd --init auto)"
 
 # Remove user@hostname from prompt if default
-DEFAULT_USER=$USER
+#DEFAULT_USER=$USER
 
-PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
+#PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
+PROMPT='%{$fg[yellow]%}[%D{%L:%M:%S}]'$PROMPT
 
 prompt_dir() {
     # Default: show dirs from home
-    #prompt_segment blue $current_FG '%~'
+    #prompt_segment blue $CURRENT_FG ' %~ '
     # Limit prompt to 3 directories
-    #prompt_segment blue $current_FG '%3~'
+    #prompt_segment blue $CURRENT_FG ' %3~ '
     # Truncate prompt to 25 chars
-    prompt_segment blue $current_FG '%<...<%~%<< '
+    prompt_segment blue $CURRENT_FG ' %25<...<%~%<< '
 }
 
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
