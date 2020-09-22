@@ -15,14 +15,18 @@
     br = branch
     ci = commit
     co = checkout
+    cob = checkout -b
     df = diff
     g = grep -I
     lg = log -p
-    rb = rbranch
-    rv = review
     sm  = show-merges
-    st = status
+    st = status -s
     ksdiff = difftool -y -t Kaleidoscope
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    contributors = shortlog --summary --numbered
+    whoami = config user.email
+    aliases = config --get-regexp alias
 
 [push]
     default = simple

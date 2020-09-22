@@ -109,4 +109,5 @@ prompt_dir() {
 }
 
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+[ -f "$HOME/.functions" ] && source "$HOME/.functions"
 

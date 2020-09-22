@@ -4,12 +4,12 @@ SCRIPTPATH="$(dirname "${BASH_SOURCE[0]:-$0}")"
 
 # Require and exit if not exists
 pkg_require(){
-   command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting." ; exit 1; } 
+   command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting." ; exit 1; }
 }
 
 # Check if exists
 # pkg_exists() {
-#     command -v $1 >/dev/null 2>&1 || echo >&2 "Pkg $1 is not installed." 
+#     command -v $1 >/dev/null 2>&1 || echo >&2 "Pkg $1 is not installed."
 # }
 pkg_exists() {
     command -v "$1" &> /dev/null

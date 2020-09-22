@@ -1,0 +1,24 @@
+GtkWindow#Main {
+    /* background-color: rgba(0, 0, 0, 0); */
+    background-color: #000000;
+}
+
+notebook {
+    padding: 0px;
+}
+
+notebook tab GtkLabel {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #505050;
+}
+
+notebook tab {
+    background-color: #101010;
+}
+
+notebook tab:checked {
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    background-color: #181818;
+    color: #eeeeee;
+}

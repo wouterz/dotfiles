@@ -127,7 +127,17 @@ tags
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,vim,intellij+all
 
 
-# Vim Editor
+# Always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.pyc
+*.rej
+*.sass-cache
+*.sw?
+*.vi
 *~
 *.swp
 *.swo
+

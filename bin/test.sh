@@ -32,7 +32,7 @@ print_success "before"
 
 # ask "Do this now?"
 
-ask_for_confirmation "link dotfiles??" 
+ask_for_confirmation "link dotfiles??"
 if answer_is_yes; then
     echo ""
     print_in_green "Linking dotfiles\n"

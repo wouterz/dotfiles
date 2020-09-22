@@ -1,5 +1,31 @@
 alias g="git"
+
+#never user vi
+alias vi="vim"
+
+# always better
 alias tmux="tmux -2"
+
+# df always humanreadable
 alias df="df -h"
+
+# get IP
 alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
+alias local-ip="ifconfig \
+                    | grep 'inet addr' \
+                    | grep -v '127.0.0.1' \
+                    | cut -d: -f2 \
+                    | cut -d' ' -f1"
+
+
 alias h="history"
+
+# cd shortcuts
+alias dl="cd ~/Downloads"
+
+
+# Shorter apt commands
+alias apti="sudo apt install"
+alias aptr="sudo apt remove"
+alias apts="sudo apt search"
+alias aptu="sudo apt update && sudo apt upgrade"

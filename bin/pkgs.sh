@@ -27,7 +27,7 @@ else
 fi
 
 # Packages to install
-ProgramArray=("git" "vim" "curl" "wget" 'python3' 'python3-pip' 'guake' 'tmux' 'docker-compose' 'fasd' 'thefuck')
+ProgramArray=("git" "vim" "curl" "wget" 'python3' 'python3-pip' 'tilda' 'tmux' 'docker-compose' 'fasd' 'thefuck' 'powertop' 'tlp' 'htop')
 for program in ${ProgramArray[*]}; do
     sh -c "$TMP $program"
 done

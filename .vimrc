@@ -56,9 +56,9 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 " turn off search highlight
-:nnoremap <leader><space> :nohlsearch<CR> 
+:nnoremap <leader><space> :nohlsearch<CR>
 :inoremap jj <Esc>
-" }}} 
+" }}}
 " Movement {{{
 " move to beginning/end of line
 :nnoremap B ^

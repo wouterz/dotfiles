@@ -8,7 +8,7 @@ echo "install oh-my-$1"
 # remove sudo
 sudo -k
 
-sudo apt install $1 
+sudo apt install $1
 
 # install oh-my-shell
 if [ $1 = "zsh" ]
