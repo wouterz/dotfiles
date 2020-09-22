@@ -21,7 +21,7 @@ link_home .bash_profile
 link_home .zshrc
 
 link_home .aliases
-link_home .funcions
+link_home .functions
 
 link_home .gitconfig
 link_home .gitattributes_global
