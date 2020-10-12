@@ -112,3 +112,5 @@ prompt_dir() {
 [ -f "$HOME/.functions" ] && source "$HOME/.functions"
 
 [ -f "$HOME/pythonstartup.py" ] && export PYTHONSTARTUP=$HOME/pythonstartup.py
+
+export PATH=$PATH:~/.local/bin
