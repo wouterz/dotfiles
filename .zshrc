@@ -111,3 +111,4 @@ prompt_dir() {
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -f "$HOME/.functions" ] && source "$HOME/.functions"
 
+[ -f "$HOME/pythonstartup.py" ] && export PYTHONSTARTUP=$HOME/pythonstartup.py
