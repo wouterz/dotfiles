@@ -10,12 +10,13 @@ alias tmux="tmux -2"
 alias df="df -h"
 
 # get IP
-alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
-alias local-ip="ifconfig \
-                    | grep 'inet addr' \
-                    | grep -v '127.0.0.1' \
-                    | cut -d: -f2 \
-                    | cut -d' ' -f1"
+alias public-ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
+#alias local-ip="ip addr\
+#                    | grep 'inet addr' \
+#                    | grep -v '127.0.0.1' \
+#                    | cut -d: -f2 \
+#                    | cut -d' ' -f1"
+alias local-ip="ip -c a"
 
 
 alias h="history"
