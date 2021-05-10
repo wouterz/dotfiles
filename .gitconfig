@@ -1,5 +1,5 @@
 [user]
-    email = W.J.Zirkzee@student.tudelft.nl
+    email = wouter.zirkzee@gmail.com
     name = Wouter Zirkzee
 
 [core]
@@ -60,3 +60,4 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
